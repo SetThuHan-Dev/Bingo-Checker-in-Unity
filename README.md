@@ -359,6 +359,61 @@ public class CellElements
 
 ```
 
-> Preview --- In Scene
+### Preview --- In Scene
+![Example](https://user-images.githubusercontent.com/113447169/191724465-06dd1653-50ff-42a7-9564-c8a8a73e1770.png)
 
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
+public class Cell : MonoBehaviour
+{    
+    [field:SerializeField]
+    public bool IsClaimed { get; set; }
+
+    public int Num;
+    public List<int> ClaimedNum = new List<int>(1);
+
+    private Text text;
+    private Image image;
+    private Button button;
+
+    private int defaultNum = 0; //not claimed condition
+    private void Start()
+    {
+        button = GetComponent<Button>();
+        image = GetComponent<Image>();
+        text = transform.GetChild(0).GetComponent<Text>();
+
+        IsClaimed = false;
+        button.onClick.AddListener(Claimed);
+        ClaimedNum.Add(defaultNum);
+        
+        image.color = Color.white;
+        text.text = Num.ToString("0");
+    }
+
+    public void Claimed()
+    {
+        if (!IsClaimed)
+        {
+            image.color = Color.cyan;
+            text.text = "Claimed!";
+            ClaimedNum.Clear();
+            ClaimedNum.Add(Num);
+            IsClaimed = true;
+        }       
+        else 
+        {
+            image.color = Color.white;
+            text.text = Num.ToString("0");
+            ClaimedNum.Clear();
+            ClaimedNum.Add(defaultNum);
+            IsClaimed = false;
+        }
+    }
+}
+
+```

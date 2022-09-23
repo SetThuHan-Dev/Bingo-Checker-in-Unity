@@ -3,8 +3,8 @@ Re-usable codes for Bingo Checking in Unity Game Dev
 
 ### 3*3 Matrix Bingo Checker
 > Note : Constant Integers in MatrixArray are only calculated for 3 * 3 Matrix
-![BingoSs](https://user-images.githubusercontent.com/113447169/191727249-56e21cf4-22b6-4f97-ad03-303f27d6e75c.png)
 
+https://user-images.githubusercontent.com/113447169/191944207-5f0ae7d4-a05e-4fff-a4f5-f98fc0ad4e72.mp4
 
 ```csharp
 using System.Collections;
